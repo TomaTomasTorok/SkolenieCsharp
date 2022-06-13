@@ -10,14 +10,14 @@
             Source = source;
             SourceType = sourceType;
            
-            ddddd
+            
         }
         public FAResult() { }
 
         /// <summary>
         /// zdroj textu
         /// </summary>
-        public string Source { get; set; }
+        public string Source { get; set; } 
         public SourceType  SourceType { get; set; } 
         /// <summary>
         /// Vysledna frekvenc. anal

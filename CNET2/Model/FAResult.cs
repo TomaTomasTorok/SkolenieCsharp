@@ -27,6 +27,8 @@
         {
             return $"{Source} {Words?.Count}";
         }
+        public Dictionary<string, int> GetTop10() => (Dictionary<string, int>) Words.OrderByDescending(kv => kv.Value).Take(10)
+            .ToDictionary(kv => kv.Key, kv => kv.Value);
     }
     public enum SourceType 
     {

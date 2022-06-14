@@ -55,7 +55,7 @@ namespace WpfApp
 
         }
 
-        private void Button2_Click(object sender, RoutedEventArgs e)
+        private async void Button2_Click(object sender, RoutedEventArgs e)
         {
             Mouse.OverrideCursor = Cursors.Wait;
             Stopwatch s = Stopwatch.StartNew();
@@ -66,11 +66,11 @@ namespace WpfApp
 
             IProgress<string> progress = new Progress<string>(message => { TextBlock1.Text += message; });
 
-            Parallel.ForEach(files, file =>
+          await   Parallel.ForEachAsync (files, async (file, cancellationToken) =>
             {
                 var result = FreqAnalysis.FreqAnalysisFromFile(file);
                 string message = "";
-                
+                 
                message +=  result.Source;
 
 
@@ -94,6 +94,60 @@ progress.Report(message);
 
         }
 
-       
+        private void Button3_Click(object sender, RoutedEventArgs e)
+        {
+            Mouse.OverrideCursor = Cursors.Wait;
+            Stopwatch s = Stopwatch.StartNew();
+
+            TextBlock1.Text = "Nacti subory";
+
+            string url1 = "https://seznam.cz";
+            string url2 = "https://seznamzpravy.cz";
+            string url3 = "https://ictpro.cz";
+
+          var t1 = Task.Run(() => Webload.LoadUrl(url1));
+          var t2 = Task.Run(() => Webload.LoadUrl(url2));
+          var t3 = Task.Run(() => Webload.LoadUrl(url3));
+            Task.WaitAny(t1, t2, t3);
+            TextBlock1.Text = "dobehol prvy task";
+            TextBlock1.Text = s.ElapsedMilliseconds + "\n" + "\n" + TextBlock1.Text;
+            s.Stop();
+
+          
+
+            Mouse.OverrideCursor = null;
+
+        }
+
+        private async void Button4_Click(object sender, RoutedEventArgs e)
+        {
+            Mouse.OverrideCursor = Cursors.Wait;
+            Stopwatch s = Stopwatch.StartNew();
+
+            TextBlock1.Text = "Nacti subory";
+
+            string url1 = "https://seznam.cz";
+            string url2 = "https://seznamzpravy.cz";
+            string url3 = "https://ictpro.cz";
+
+            var t1 = Task.Run(() => Webload.LoadUrl(url1));
+            var t2 = Task.Run(() => Webload.LoadUrl(url2));
+            var t3 = Task.Run(() => Webload.LoadUrl(url3));
+            var firstDone = await Task.WhenAny(t1, t2, t3);
+
+            TextBlock1.Text += "dobehol prvy task";
+
+
+            TextBlock1.Text = "dobehol prvy task";
+            TextBlock1.Text = s.ElapsedMilliseconds + "\n" + "\n" + TextBlock1.Text;
+            s.Stop();
+
+
+
+            Mouse.OverrideCursor = null;
+
+
+
+        }
     }
 }

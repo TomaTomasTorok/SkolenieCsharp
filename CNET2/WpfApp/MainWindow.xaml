@@ -11,13 +11,16 @@
             <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-    
-            <Button x:Name="BTNLoad1" Content="Načti subor" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" Click="Button_Click" VerticalAlignment="Top" FontSize="20"/>
-    
+
+        <Button x:Name="BTNLoad1" Content="Načti subor" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" Click="Button_Click" VerticalAlignment="Top" FontSize="20"/>
+
         <ScrollViewer Grid.Row="1">
             <TextBlock x:Name="TextBlock1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Stretch" FontSize="16" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
         </ScrollViewer>
         <Button x:Name="Button2" Content="Nove" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" FontSize="18" IsDefault="True" Click="Button2_Click"/>
+        <Button x:Name="Button3" Content="WaitAny" HorizontalAlignment="Left" Margin="223,14,0,0" VerticalAlignment="Top" Click="Button3_Click" FontSize="16" RenderTransformOrigin="0.526,0.672"/>
+        <Button x:Name="Button4" Content="WhenFirst" HorizontalAlignment="Left" Margin="326,17,0,0" VerticalAlignment="Top" Click="Button4_Click"/>
+        <Button x:Name="Button5" Content="Button5" HorizontalAlignment="Left" Margin="400,17,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>

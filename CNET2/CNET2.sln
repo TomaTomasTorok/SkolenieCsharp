@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{F8B8BECA-2F16-4BDE-8C93-86CED2779D54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{F8B8BECA-2F16-4BDE-8C93-86CED2779D54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{148ABEA4-5BBF-4EF0-9D76-EA967BF32770}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{148ABEA4-5BBF-4EF0-9D76-EA967BF32770}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{EA1963AF-74E4-447E-937B-C9243648F4A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{EA1963AF-74E4-447E-937B-C9243648F4A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{2169F6B5-E9E7-4014-822C-C03EBC73FFC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{EA1963AF-74E4-447E-937B-C9243648F4A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA1963AF-74E4-447E-937B-C9243648F4A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA1963AF-74E4-447E-937B-C9243648F4A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2169F6B5-E9E7-4014-822C-C03EBC73FFC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2169F6B5-E9E7-4014-822C-C03EBC73FFC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2169F6B5-E9E7-4014-822C-C03EBC73FFC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2169F6B5-E9E7-4014-822C-C03EBC73FFC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

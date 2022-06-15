@@ -55,7 +55,7 @@ GreetClient(clients);
 
     foreach (IGreetable o in clients)
     {
-        Console.WriteLine(o.SayHello());
+        //Console.WriteLine(o.SayHello());
     }
 
 }
@@ -76,9 +76,44 @@ Console.WriteLine($"{last} {last.Age()}");
 var res =  dataset.Select(p => new {p.FullName, age=p.Age() + 5});
 var res2 =  dataset.Select(p =>  (FullName: p.FullName, age: p.Age() + 5));
 
-foreach (var item in res2) { 
-Console.WriteLine(item.FullName + " "+ item.age.ToString("dd.MM. yyyy"));
+
+
+var grup = dataset.GroupBy(p => p.HomeAddress.City);
+foreach (var item in grup) { 
+Console.WriteLine($"\n{item.Key}//////////////////////////  ");
+    foreach (var ludia in item)
+    {
+
+        Console.WriteLine($"{ludia} ");
+
+
+    }
+
 }
+//select Many
+
+
+var contract = dataset.Where(x => x.Contracts.Count() > 0 );
+
+
+
+
+var res4 = contract.OrderByDescending(p => p.Contracts.OrderByDescending(c => c.Signed).First().Signed).First();
+Console.WriteLine(res4.FullName);
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
 
 //Console.WriteLine(last.Age());
 //foreach (var o in c) {  

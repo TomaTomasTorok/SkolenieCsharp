@@ -59,3 +59,20 @@ GreetClient(clients);
     }
 
 }
+var dataset = Data.Serialization.LoadFromXML(@"C:\Users\StudentEN\Desktop\xml\dataset.xml");
+Console.WriteLine(dataset.Count());
+
+var order = dataset.OrderBy(x => x.Age());
+var first=order.First();
+var last=order.Last();
+var a =dataset.Where(n => n.Contracts.Count() > 0 ).Count();
+var c = dataset.Where(n => n.HomeAddress.City == "Brno");
+
+
+Console.WriteLine($"{first} {first.Age()}");
+Console.WriteLine($"{last} {last.Age()}");
+//Console.WriteLine(last.Age());
+//foreach (var o in c) {  
+
+//Console.WriteLine(o);
+//}

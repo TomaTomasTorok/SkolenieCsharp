@@ -61,6 +61,11 @@ GreetClient(clients);
 }
 var dataset = Data.Serialization.LoadFromXML(@"C:\Users\StudentEN\Desktop\xml\dataset.xml");
 Console.WriteLine(dataset.Count());
+using var db = new peopleContext();
+db.Persons.AddRange(dataset);
+db.SaveChanges();   
+Console.WriteLine("ok");
+
 
 var order = dataset.OrderBy(x => x.Age());
 var first=order.First();
@@ -69,27 +74,27 @@ var a =dataset.Where(n => n.Contracts.Count() > 0 ).Count();
 var c = dataset.Where(n => n.HomeAddress.City == "Brno");
 
 
-Console.WriteLine($"{first} {first.Age()}");
-Console.WriteLine($"{last} {last.Age()}");
+//Console.WriteLine($"{first} {first.Age()}");
+//Console.WriteLine($"{last} {last.Age()}");
 
 
-var res =  dataset.Select(p => new {p.FullName, age=p.Age() + 5});
-var res2 =  dataset.Select(p =>  (FullName: p.FullName, age: p.Age() + 5));
+//var res =  dataset.Select(p => new {p.FullName, age=p.Age() + 5});
+//var res2 =  dataset.Select(p =>  (FullName: p.FullName, age: p.Age() + 5));
 
 
 
-var grup = dataset.GroupBy(p => p.HomeAddress.City);
-foreach (var item in grup) { 
-Console.WriteLine($"\n{item.Key}//////////////////////////  ");
-    foreach (var ludia in item)
-    {
+//var grup = dataset.GroupBy(p => p.HomeAddress.City);
+//foreach (var item in grup) { 
+//Console.WriteLine($"\n{item.Key}//////////////////////////  ");
+//    foreach (var ludia in item)
+//    {
 
-        Console.WriteLine($"{ludia} ");
+//        Console.WriteLine($"{ludia} ");
 
 
-    }
+//    }
 
-}
+//}
 //select Many
 
 

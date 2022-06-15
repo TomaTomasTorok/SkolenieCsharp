@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    internal class peopleContext : DbContext
+    public class peopleContext : DbContext
     {
         public DbSet<Person> Persons { get; set; }
         public DbSet<Address> Addresses { get; set; }

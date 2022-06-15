@@ -71,6 +71,15 @@ var c = dataset.Where(n => n.HomeAddress.City == "Brno");
 
 Console.WriteLine($"{first} {first.Age()}");
 Console.WriteLine($"{last} {last.Age()}");
+
+
+var res =  dataset.Select(p => new {p.FullName, age=p.Age() + 5});
+var res2 =  dataset.Select(p =>  (FullName: p.FullName, age: p.Age() + 5));
+
+foreach (var item in res2) { 
+Console.WriteLine(item.FullName + " "+ item.age.ToString("dd.MM. yyyy"));
+}
+
 //Console.WriteLine(last.Age());
 //foreach (var o in c) {  
 

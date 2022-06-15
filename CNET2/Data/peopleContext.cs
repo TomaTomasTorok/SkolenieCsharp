@@ -19,6 +19,9 @@ namespace Data
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=PeopleDb;Trusted_Connection=True;MultipleActiveResultSets=true");
         }
 
-
+        public object Where(Func<object, bool> value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

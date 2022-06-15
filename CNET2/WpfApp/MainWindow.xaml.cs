@@ -149,5 +149,65 @@ progress.Report(message);
 
 
         }
+
+        private async void Button5_Click (object sender, RoutedEventArgs e)
+        {
+            Mouse.OverrideCursor = Cursors.Wait;
+            Stopwatch s = Stopwatch.StartNew();
+
+            TextBlock1.Text = "Nacti subory";
+
+            string url1 = "https://seznam.cz";
+            string url2 = "https://seznamzpravy888.cz";
+            string url3 = "https://ictpro.cz";
+
+            var t1 = Task.Run(() => Webload.LoadUrl(url1));
+            var t2 = Task.Run(() => Webload.LoadUrl(url2));
+            var t3 = Task.Run(() => Webload.LoadUrl(url3));
+            var results = await Task.WhenAll(t1, t2, t3);
+
+            TextBlock1.Text += "Weby su dlhe";
+
+
+            TextBlock1.Text = "dobehol prvy task";
+            TextBlock1.Text =$"{ s.ElapsedMilliseconds}  {string.Join(" ,", results)}";
+            s.Stop();
+
+
+
+            Mouse.OverrideCursor = null;
+
+        }
+
+        private async void Button6_Click(object sender, RoutedEventArgs e)
+        {
+           // Mouse.OverrideCursor = Cursors.Wait;
+           // Stopwatch s = Stopwatch.StartNew();
+
+           // TextBlock1.Text = "Nacti subory";
+
+           // string[] urls = { "https://seznam.cz", "https://seznamzpravy888.cz", "https://ictpro.cz" };
+           
+
+           //foreach (var url in urls)
+           // {
+
+           //var task=    Task.Run(() => Webload.LoadUrl(url));
+           //     string[] pole
+           // }
+        
+           // var results = await Task.WhenAll(t1, t2, t3);
+
+           // TextBlock1.Text += "Weby su dlhe";
+
+
+           // TextBlock1.Text = "dobehol prvy task";
+           // TextBlock1.Text = $"{s.ElapsedMilliseconds}  {string.Join(" ,", results)}";
+           // s.Stop();
+
+
+
+           // Mouse.OverrideCursor = null;
+        }
     }
 }

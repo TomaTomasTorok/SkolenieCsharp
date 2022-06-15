@@ -20,7 +20,8 @@
         <Button x:Name="Button2" Content="Nove" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" FontSize="18" IsDefault="True" Click="Button2_Click"/>
         <Button x:Name="Button3" Content="WaitAny" HorizontalAlignment="Left" Margin="223,14,0,0" VerticalAlignment="Top" Click="Button3_Click" FontSize="16" RenderTransformOrigin="0.526,0.672"/>
         <Button x:Name="Button4" Content="WhenFirst" HorizontalAlignment="Left" Margin="326,17,0,0" VerticalAlignment="Top" Click="Button4_Click"/>
-        <Button x:Name="Button5" Content="Button5" HorizontalAlignment="Left" Margin="400,17,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Button5" Content="WhenAll" HorizontalAlignment="Left" Margin="400,17,0,0" VerticalAlignment="Top" Click="Button5_Click"/>
+        <Button x:Name="Button6" Content="WhenAll progras" HorizontalAlignment="Left" Margin="487,18,0,0" VerticalAlignment="Top" FontSize="14" Click="Button6_Click"/>
 
 
     </Grid>

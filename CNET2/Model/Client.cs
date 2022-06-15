@@ -11,7 +11,8 @@ namespace Model
     }
     public  class Client : IGreetable
     {
-       
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public string SayHello()

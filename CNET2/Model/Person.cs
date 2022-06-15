@@ -8,6 +8,7 @@ namespace Model
 {
     public class Person
     {
+        public int Id { get; set; }
         #region konstruktory
         public Person(string firstName, string lastName)
         {

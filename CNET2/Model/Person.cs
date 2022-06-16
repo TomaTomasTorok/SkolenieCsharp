@@ -40,15 +40,16 @@ namespace Model
        
         public DateTime DateOfBirth { get; set; }
 
-        // [NotMapped]
-        //public DateOnly DateOfBirthDateOnly
-        //{
-        //    get { return DateOnly.FromDateTime(DateOfBirth) ; }
-        //    set {
-        //        DateOfBirth = value.ToDateTime(new TimeOnly(0));
-        //            }
+        [NotMapped]
+        public DateOnly DateOfBirthDateOnly
+        {
+            get { return DateOnly.FromDateTime(DateOfBirth); }
+            set
+            {
+                DateOfBirth = value.ToDateTime(new TimeOnly(0));
+            }
 
-        //}
+        }
 
 
         public Address HomeAddress { get; set; }

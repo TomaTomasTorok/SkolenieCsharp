@@ -59,19 +59,21 @@ GreetClient(clients);
     }
 
 }
-var dataset = Data.Serialization.LoadFromXML(@"C:\Users\StudentEN\Desktop\xml\dataset.xml");
-Console.WriteLine(dataset.Count());
+//var dataset = Data.Serialization.LoadFromXML(@"C:\Users\StudentEN\Desktop\xml\dataset.xml");
+//Console.WriteLine(dataset.Count());
 using var db = new peopleContext();
-db.Persons.AddRange(dataset);
-db.SaveChanges();   
-Console.WriteLine("ok");
+//db.Persons.AddRange(dataset);
+//db.SaveChanges();   
+//Console.WriteLine("ok");
 
 
-var order = dataset.OrderBy(x => x.Age());
-var first=order.First();
-var last=order.Last();
-var a =dataset.Where(n => n.Contracts.Count() > 0 ).Count();
-var c = dataset.Where(n => n.HomeAddress.City == "Brno");
+//var order = dataset.OrderBy(x => x.Age());
+//var first=order.First();
+//var last=order.Last();
+//var a =dataset.Where(n => n.Contracts.Count() > 0 ).Count();
+//var c = dataset.Where(n => n.HomeAddress.City == "Brno");
+db.Contracts.First().Company = new Company(){ Name = "Test Company"};
+db.SaveChanges();
 
 
 //Console.WriteLine($"{first} {first.Age()}");
@@ -98,13 +100,13 @@ var c = dataset.Where(n => n.HomeAddress.City == "Brno");
 //select Many
 
 
-var contract = dataset.Where(x => x.Contracts.Count() > 0 );
+//var contract = dataset.Where(x => x.Contracts.Count() > 0 );
 
 
 
 
-var res4 = contract.OrderByDescending(p => p.Contracts.OrderByDescending(c => c.Signed).First().Signed).First();
-Console.WriteLine(res4.FullName);
+//var res4 = contract.OrderByDescending(p => p.Contracts.OrderByDescending(c => c.Signed).First().Signed).First();
+//Console.WriteLine(res4.FullName);
 
 
 

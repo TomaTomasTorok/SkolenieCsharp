@@ -10,7 +10,7 @@ namespace Model
     {
         public int Id { get; set; }
         public string City { get; set; }
-
+  
         public string Street { get; set; }
 
         public override string ToString()

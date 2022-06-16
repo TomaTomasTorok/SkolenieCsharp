@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(peopleContext))]
-    [Migration("20220615131824_init")]
-    partial class init
+    [Migration("20220616091417_company9")]
+    partial class company9
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,6 +45,28 @@ namespace Data.Migrations
                     b.ToTable("Addresses");
                 });
 
+            modelBuilder.Entity("Model.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("AddressId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AddressId");
+
+                    b.ToTable("Company");
+                });
+
             modelBuilder.Entity("Model.Contract", b =>
                 {
                     b.Property<int>("Id")
@@ -52,6 +74,9 @@ namespace Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("CompanyId")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -71,6 +96,8 @@ namespace Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
 
                     b.HasIndex("PersonId");
 
@@ -110,11 +137,26 @@ namespace Data.Migrations
                     b.ToTable("Persons");
                 });
 
+            modelBuilder.Entity("Model.Company", b =>
+                {
+                    b.HasOne("Model.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId");
+
+                    b.Navigation("Address");
+                });
+
             modelBuilder.Entity("Model.Contract", b =>
                 {
+                    b.HasOne("Model.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId");
+
                     b.HasOne("Model.Person", null)
                         .WithMany("Contracts")
                         .HasForeignKey("PersonId");
+
+                    b.Navigation("Company");
                 });
 
             modelBuilder.Entity("Model.Person", b =>

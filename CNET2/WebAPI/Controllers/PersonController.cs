@@ -1,6 +1,7 @@
 ﻿using Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Model;
 
 namespace WebAPI.Controllers
@@ -17,7 +18,8 @@ namespace WebAPI.Controllers
         [HttpGet("GetAll")]
         public IEnumerable<Person> GetPeople() {
             var db =  new Data.peopleContext();
-            return _db.Persons;
+            return _db.Persons.Include(x => x.Contracts)
+                .Include(x => x.HomeAddress)   ;
         }
 
     
@@ -31,9 +33,19 @@ namespace WebAPI.Controllers
         {
             var db = new Data.peopleContext();
 
-            return _db.Persons.Where(x => x.Email.ToLower() == email.ToLower()).FirstOrDefault();
+            return _db.Persons.Include(x => x.Contracts)
+                .Include(x => x.HomeAddress).Where(x => x.Email.ToLower() == email.ToLower()).FirstOrDefault();
         }
 
+        [HttpGet("ByPersonId/{id}")]
+        public Person? GetPeopleID(int id)
+        {
+            var db = new Data.peopleContext();
+
+            return _db.Persons.Include(x => x.Contracts)
+                              .Include(x => x.HomeAddress)
+                              .FirstOrDefault(x => x.Id == id);
+        }
 
     }
 }

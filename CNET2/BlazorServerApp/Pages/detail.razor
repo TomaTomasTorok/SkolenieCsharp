@@ -1,0 +1,23 @@
+﻿@page  "/Detail/{Id:int}"
+@inject peopleContext db
+@using Model
+
+<h3>detail</h3>
+<h3>Osoba Id</h3>
+<h1>@meno</h1>
+
+@code {
+    [Parameter]
+   public int Id { get; set; }
+   public int pocet=3;
+   public string meno="";
+   
+
+  
+    protected override void OnInitialized()
+    {
+        
+        meno = db.Persons.First().FullName;
+    }
+
+}

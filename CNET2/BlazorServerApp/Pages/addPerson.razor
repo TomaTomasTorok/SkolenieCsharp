@@ -1,0 +1,14 @@
+﻿@page "/Add"
+@inject peopleContext db
+@using Model
+
+<h3>addPerson</h3>
+ <div class="form-group">
+    <label for="firstname">Jmeno</label>
+    <input type="text" class="form-control" id="name" placeholder="Jmeno">
+  </div>
+
+@code {
+    public Person Person { get; set; }
+
+}

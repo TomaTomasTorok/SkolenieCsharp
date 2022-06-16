@@ -5,10 +5,27 @@
 <h3>addPerson</h3>
  <div class="form-group">
     <label for="firstname">Jmeno</label>
-    <input type="text" class="form-control" id="name" placeholder="Jmeno">
+    <input @bind-value=Person.FirstName   type="text" class="form-control" id="name" placeholder="Jmeno">
   </div>
-
+  <div class="form-group">
+    <label for="email" Jmeno class="from-label">Email Address</label>
+    <input @bind-value=Person.Email   type="email" class="form-control" id="email" placeholder="email">
+  </div>
+  <Button class="btn btn-primary" @onclick=Save>Uloz</Button>
 @code {
-    public Person Person { get; set; }
+    public Person Person { get; set; } = new Person();
+    void Save() {
+        if (Person.Id>0){
+            db.Persons.Add(Person);
+            //nerob nic
+ }
+ else{
+        Person.HomeAddress = new Address() {City = "Pes", Street = "Macka" };
+        db.Persons.Add(Person);
+        
+        db.SaveChanges();
+        Person = new Person();
+}
+    }
 
 }

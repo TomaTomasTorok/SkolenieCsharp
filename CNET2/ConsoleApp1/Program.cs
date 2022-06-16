@@ -72,8 +72,16 @@ using var db = new peopleContext();
 //var last=order.Last();
 //var a =dataset.Where(n => n.Contracts.Count() > 0 ).Count();
 //var c = dataset.Where(n => n.HomeAddress.City == "Brno");
-db.Contracts.First().Company = new Company(){ Name = "Test Company"};
+db.Contracts.First().Company = new Company() { Name = "Test Company" };
+
+Address c= new Address() { City = "dd" };
+c.Street = "ee";
+
+ db.Contracts.First().Company = new Company() { Name = "Test Company",Address = c };
+ 
 db.SaveChanges();
+
+
 
 //
 //Console.WriteLine($"{first} {first.Age()}");
@@ -107,8 +115,6 @@ db.SaveChanges();
 
 //var res4 = contract.OrderByDescending(p => p.Contracts.OrderByDescending(c => c.Signed).First().Signed).First();
 //Console.WriteLine(res4.FullName);
-
-
 
 
 

@@ -75,7 +75,7 @@ using var db = new peopleContext();
 db.Contracts.First().Company = new Company(){ Name = "Test Company"};
 db.SaveChanges();
 
-
+//
 //Console.WriteLine($"{first} {first.Age()}");
 //Console.WriteLine($"{last} {last.Age()}");
 
